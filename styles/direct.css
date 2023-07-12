@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  
+  .input-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: inline-block;
+    width: 250px;
+  }
+  
+  input {
+    width: 150px;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+    background-color: green;
+    color: white;
+  }.first{
+width: 50%;
+    margin: auto;
+  }

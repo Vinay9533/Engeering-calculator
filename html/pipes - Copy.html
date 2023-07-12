@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="waterstyle.css">
+    <script src="water.js" defer></script> 
+    <title>Document</title>
+    
+    <script>
+        // Material density values
+const materialList = {
+  "Iron": 7.86,
+  "Stainless Steel": 7.95,
+  "Copper": 8.96,
+  "Brass": 8.73,
+  "Cast iron": 7.2,
+  "Aluminum": 2.7,
+  "6061 Aluminum (AlMg1SiCu)": 2.7,
+  "7005 Aluminum (AlZn4,5Mg1,5Mn)": 2.8,
+  "7020 Aluminum (AlZn4,5Mg1)": 2.8,
+  "7075 Aluminum (AlZn5,5MgCu)": 2.8,
+  "Platinum": 21.45,
+  "Gold": 19.3,
+  "Silver": 10.5,
+  "Plumbum": 11.3,
+  "Bronze": 8.8,
+  "Nickel": 8.35,
+  "Nichrome": 8.3,
+  "Tin": 7.3,
+  "Chrome": 7.1,
+  "Zinc": 7.1,
+  "Titanium": 4.6,
+  "Skandium": 2.8,
+  "Duralumin": 2.8,
+  "Teflon": 2.25,
+  "Paronite": 1.8,
+  "Magnesium": 1.74,
+  "Carbon": 1.7,
+  "Delrin": 1.42,
+  "Polyoxymethylene": 1.41,
+  "Fiber": 1.4,
+  "Polyacetal - pom": 1.35,
+  "Textolite": 1.35,
+  "Kestamid": 1.2,
+  "Polyamide": 1.2,
+  "Polietilen": 1.2,
+  "Poliemit": 1.2,
+  "Caprolon (PA 6)": 1.15,
+  "Alpolen": 1.2
+};
+
+// Function to calculate the weight
+function calculateWeight() {
+  const materialSelect = document.getElementById("material");
+  const diameterInput = document.getElementById("diameter");
+  const lengthInput = document.getElementById("length");
+  const thicknessInput = document.getElementById("thickness");
+  const weightOutput = document.getElementById("weight");
+
+  // Get the selected material density
+  const materialDensity = materialList[materialSelect.value];
+
+  // Get the inputs values
+  const diameter = parseFloat(diameterInput.value);
+  const length = parseFloat(lengthInput.value);
+  const thickness = parseFloat(thicknessInput.value);
+
+  // Calculate the weight
+  const volume = Math.PI * (diameter / 2) ** 2 * length * thickness / 1000; // cm^3 to liters
+  const weight = volume * materialDensity;
+
+  // Update the weight output
+  weightOutput.textContent = "Weight: " + weight.toFixed(2) + " kg";
+
+  // Update the diagram
+  // Scale the width for visualization
+}
+
+// Populate material options
+function populateMaterialOptions() {
+  const materialSelect = document.getElementById("material");
+
+  for (const material in materialList) {
+      const option = document.createElement("option");
+      option.text = material;
+      materialSelect.add(option);
+  }
+}
+
+// Call the populateMaterialOptions function to populate the options on page load
+populateMaterialOptions();
+    </script>
+    <style>
+
+        
+        body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#inputs {
+  margin: 20px auto;
+  width: 300px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#result {
+  margin: 30px auto;
+  width: 400px;
+}
+
+#weight {
+  font-weight: bold;
+}
+    </style>
+</head>
+<body>
+  
+  <h1>Pipe Weight Calculator</h1>
+  <div id="inputs">
+      <label for="material">Material:</label>
+      <select id="material">
+          <!-- Populate options dynamically using JavaScript -->
+      </select>
+      <label for="diameter">Diameter (cm):</label>
+      <input type="number" id="diameter">
+      <label for="length">Length (cm):</label>
+      <input type="number" id="length">
+      <label for="thickness">Thickness (cm):</label>
+      <input type="number" id="thickness">
+      <button onclick="calculateWeight()">Calculate</button>
+  </div>
+  <div id="result">
+      <h2>Result:</h2>
+      <p id="weight"></p>
+  </div>
+
+  
+  
+  
+  
+            
+      
+      
+</body>
+</html>

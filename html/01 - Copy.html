@@ -1,0 +1,130 @@
+<html>
+    <div class="col-md-7">
+        <div class="portlet light">
+        <div class="portlet-title">
+        <h2 class="caption H2_MarginTB5" title="Construction Cost Calculator | House Construction Cost Calculator">
+        <img id="ctl00_cphPageContent_imgCostEstimator" src="../images/icons/Icon_CostEstimator.png" style="width:25px;border-width:0px;">
+        <span class="caption-subject bold uppercase">Construction Cost Estimator</span>
+        </h2>
+        </div>
+        <div class="portlet-body form">
+        <div class="row">
+        <div class="col-md-12">
+        <div id="ctl00_cphPageContent_vsCostEstimatorCalculation" style="color:Red;display:none;">
+        </div>
+        </div>
+        </div>
+        <div role="form" class="form-horizontal">
+        <div class="form-body">
+        <div class="form-group">
+        <label class="col-md-6 control-label">
+        Builtup Area
+        </label>
+        <div class="col-md-6">
+        <div class="input-group">
+        <input name="ctl00$cphPageContent$txtBuiltup" type="text" value="200" maxlength="7" id="ctl00_cphPageContent_txtBuiltup" title="Enter builtup square feet" class="form-control" onkeypress="return IsDecimal2DigitPositive(this, event)">
+        <span class="input-group-addon bold">ft <sup>2</sup></span>
+        <span id="ctl00_cphPageContent_rfvBuiltup" style="color:Red;display:none;"></span>
+        </div>
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="col-md-6 control-label">
+        Approx Cost (Per Square Feet)
+        </label>
+        <div class="col-md-6">
+        <div class="input-group">
+        <input name="ctl00$cphPageContent$txtApproxCost" type="text" value="1000" maxlength="7" id="ctl00_cphPageContent_txtApproxCost" title="Enter approx cost per square feet" class="form-control" onkeypress="return IsDecimal2DigitPositive(this, event)">
+        <span class="input-group-addon bold">Rs.</span>
+        <span id="ctl00_cphPageContent_rfvApproxCost" style="color:Red;display:none;"></span>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="form-actions text-right">
+        <input type="submit" name="ctl00$cphPageContent$btnCalculate" value="Calculate" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cphPageContent$btnCalculate&quot;, &quot;&quot;, true, &quot;CostEstimatorCalculation&quot;, &quot;&quot;, false, false))" id="ctl00_cphPageContent_btnCalculate" title="Calculate Cost" class="btn blue">
+        <input type="submit" name="ctl00$cphPageContent$btnReset" value="Reset" id="ctl00_cphPageContent_btnReset" title="Reset" class="btn red">
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="portlet light">
+            <div class="portlet-title">
+            <h2 class="caption H2_MarginTB5" title="Cost estimator calculator | House cost estimator calculator">
+            <i class="icon-info"></i>
+            Calculation of Cost | Approx amount of cost for given construction is
+            <span id="ctl00_cphPageContent_lblAnswerAmount" class="text-danger bold">2,00,000.00 Rs.</span>
+            </h2>
+            </div>
+            <div class="portlet-body">
+            <div class="row">
+            <div class="col-md-5">
+            <div class="panel panel-default">
+            <div class="panel-heading" title="Approximate cost on various work of materials">
+            <h4 class="panel-title bold">Approximate <strong>cost on various work of material</strong>as per thumb rule
+            </h4>
+            </div>
+            <ul class="list-group">
+            <li class="list-group-item">Cement (16.4 %)
+            <span class="label label-primary pull-right">
+            <span id="ctl00_cphPageContent_lblAnswerCementAmount">32,800.00 Rs.</span>
+            </span>
+            </li>
+            <li class="list-group-item">Sand (12.3 %)
+            <span class="label label-info pull-right">
+            <span id="ctl00_cphPageContent_lblAnswerSandAmount">24,600.00 Rs.</span>
+            </span>
+            </li>
+            <li class="list-group-item">Aggregate (7.4 %)
+            <span class="label label-warning pull-right">
+            <span id="ctl00_cphPageContent_lblAnswerAggregateAmount">14,800.00 Rs.</span>
+            </span>
+            </li>
+            <li class="list-group-item">Steel (24.6 %)
+            <span class="label label-success pull-right">
+            <span id="ctl00_cphPageContent_lblAnswerSteelAmount">49,200.00 Rs.</span>
+            </span>
+            </li>
+            <li class="list-group-item">Finishers (16.5 %)
+            <span class="label label-danger pull-right">
+            <span id="ctl00_cphPageContent_lblFinishersAmount">33,000.00 Rs.</span>
+            </span>
+            <br>
+            (Paint (4.1 %) + Tiles (8.0 %) + Bricks (4.4 %))
+            </li>
+            <li class="list-group-item">Fittings (22.8 %)
+            <span class="label label-success pull-right">
+            <span id="ctl00_cphPageContent_lblFittingsAmount">45,600.00 Rs.</span>
+            </span>
+            <br>
+            (Window (3.0 %) + Doors (3.4 %) + Plumbing (5.5 %) + Eletrical (6.8 %) + Sanitary (4.1 %))
+            </li>
+            <li class="list-group-item bold">TOTAL COST
+            <span class="label label-danger pull-right">
+            <span id="ctl00_cphPageContent_lblTotalCost">2,00,000.00 Rs.</span>
+            </span>
+            </li>
+            </ul>
+            </div>
+            </div>
+            <div class="col-md-7 text-center">
+            <h3>To <strong>complete this construction</strong> in <span class="bold text-danger">6 months</span> timeline <strong>money required</strong> is as below
+            </h3>
+            <div class="text-center"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+            <canvas id="CostEstimatorBar_Chart" width="660" height="330" style="display: block; height: 165px; width: 330px;" class="chartjs-render-monitor">
+            </canvas></div>
+            </div>
+            </div>
+            </div>
+            </div>
+</html>

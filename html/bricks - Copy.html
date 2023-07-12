@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Language Change</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        .calculator {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.input-section {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+}
+
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+    </style>
+    <script>
+        function calculateMasonry() {
+  var unit = document.getElementById('unit').value;
+  var length = parseFloat(document.getElementById('length').value);
+  var height = parseFloat(document.getElementById('height').value);
+  var wallThickness = parseFloat(document.getElementById('wall-thickness').value);
+  var ratio = document.getElementById('ratio').value;
+  var brickLength = parseFloat(document.getElementById('brick-length').value);
+  var brickWidth = parseFloat(document.getElementById('brick-width').value);
+  var brickHeight = parseFloat(document.getElementById('brick-height').value);
+
+  if (isNaN(length) || isNaN(height) || isNaN(brickLength) || isNaN(brickWidth) || isNaN(brickHeight)) {
+    document.getElementById('result').textContent = 'Please enter valid values.';
+    return;
+  }
+
+  var wallArea, totalBricks, volumeBricks, volumeCement, volumeSand;
+
+  if (unit === 'feet') {
+    length *= 0.3048; // Convert length to meters
+    height *= 0.3048; // Convert height to meters
+    brickLength *= 0.3048; // Convert brick length to meters
+    brickWidth *= 0.3048; // Convert brick width to meters
+    brickHeight *= 0.3048; // Convert brick height to meters
+  }
+
+  if (wallThickness === 10) {
+    wallArea = length * height;
+  } else if (wallThickness === 23) {
+    wallArea = (length + 0.23) * (height + 0.23);
+  } else {
+    document.getElementById('result').textContent = 'Please enter a valid wall thickness.';
+    return;
+  }
+
+  totalBricks = Math.ceil(wallArea / (brickLength * brickHeight));
+  volumeBricks = totalBricks * (brickLength * brickWidth * brickHeight);
+  volumeCement = (wallArea * ratio.split(':')[0]) / (1 + parseInt(ratio.split(':')[0]));
+  volumeSand = (wallArea * ratio.split(':')[1]) / (1 + parseInt(ratio.split(':')[0]));
+
+  document.getElementById('result').textContent = `Total Bricks Required: ${totalBricks}\nVolume of Construction with Material:\nBricks: ${volumeBricks.toFixed(2)} cubic units\nCement: ${volumeCement.toFixed(2)} cubic units\nSand: ${volumeSand.toFixed(2)} cubic units`;
+}
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Brick Masonry Calculator</h2>
+        <div class="input-section">
+          <label for="unit">Unit:</label>
+          <select id="unit">
+            <option value="meter">Meter / CM</option>
+            <option value="feet">Feet / Inch</option>
+          </select>
+        </div>
+        <div class="input-section">
+          <label for="length">Length:</label>
+          <input type="number" id="length" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="height">Height:</label>
+          <input type="number" id="height" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="wall-thickness">Wall Thickness:</label>
+          <select id="wall-thickness">
+            <option value="10">10 cm Wall</option>
+            <option value="23">23 cm Wall</option>
+            <option value="other">Other Partition Wall</option>
+          </select>
+        </div>
+        <div class="input-section">
+          <label for="ratio">Ratio:</label>
+          <select id="ratio">
+            <option value="1:3">C.M 1:3</option>
+            <option value="1:4">C.M 1:4</option>
+            <option value="1:5">C.M 1:5</option>
+            <option value="1:6">C.M 1:6</option>
+            <option value="1:7">C.M 1:7</option>
+            <option value="1:8">C.M 1:8</option>
+            <option value="1:9">C.M 1:9</option>
+          </select>
+        </div>
+        <div class="input-section">
+          <label for="brick-length">Brick Length:</label>
+          <input type="number" id="brick-length" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="brick-width">Brick Width:</label>
+          <input type="number" id="brick-width" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="brick-height">Brick Height:</label>
+          <input type="number" id="brick-height" step="0.01">
+        </div>
+        <button onclick="calculateMasonry()">Calculate</button>
+        <div id="result"></div>
+      </div>

@@ -1,0 +1,78 @@
+<html>
+    <head>
+<script>
+    function cal(){
+        
+        var sub1=document.getElementById("vinnu").value;
+       var  sub2=document.getElementById("rr").value;
+let total=Number(sub1) * Number(sub2);
+document.getElementById("para").innerHTML=`total:${total}`;
+let cementamount=((16.4/100)*total);
+document.getElementById("amount").innerHTML=`CEMENT:${cementamount}Rs`;
+let cement=sub1*0.4;
+document.getElementById("cement").innerHTML=`cement:${cement}Bags`;
+
+let sandamount=((12.3/100)*total);
+document.getElementById("sandamount").innerHTML=`SAND:${sandamount}Rs`;
+let sand=sub1*0.816;
+document.getElementById("sand").innerHTML=`SAND:${sand}Tons`;
+
+
+    }
+</script>
+
+
+
+<style>
+    .div1{
+        width: 50%;
+        text-align: center;
+        height: 525px;
+    }h1{
+        margin: 10px;
+        
+    }.h1{
+        margin-right: 115px;
+    }.h2{
+        margin-left: 145px;
+    }.div2{
+        margin-top: 52px;
+        
+    }button{
+        margin: 25px;
+    }
+</style>
+    </head>
+    <body>
+        <div class="div1">
+       <h1 class="h2"> Builtup Area: <input type="text" id="vinnu"><br></h1>
+       
+     <h1 class="h1">Approx Cost (Per Square Feet): <input type="text" id ="rr"></h1>
+
+        <div class="div2"><button onclick="cal()">calculate</button>
+        <button>reset</button>
+        </div>
+       <div> 
+        <p id="para"> total:</p>
+        <h1 id="cement"></h1>
+   <h1 id="amount"></h1>   </div>
+
+
+   <div class="div3">
+    <h1 id="sandamount"></h1>
+    <h1 id="sand"></h1>
+    </div>
+
+
+
+
+</div>
+
+
+   
+
+
+   
+
+    </body>
+</html>

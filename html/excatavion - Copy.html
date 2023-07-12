@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Excavation Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    h1 {
+  text-align: center;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+}
+
+input[type="number"] {
+  width: 200px;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+}
+
+#result {
+  text-align: center;
+  font-weight: bold;
+}
+  </style>
+  <script>
+    function calculateExcavation() {
+  // Get the input values
+  const length = parseFloat(document.getElementById('length').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const depth = parseFloat(document.getElementById('depth').value);
+
+  // Check if the input values are valid
+  if (isNaN(length) || isNaN(width) || isNaN(depth) || length <= 0 || width <= 0 || depth <= 0) {
+    document.getElementById('result').textContent = 'Please enter valid input values.';
+    return;
+  }
+
+  // Calculate the volume of the excavation
+  const volume = length * width * depth;
+
+  // Display the result
+  document.getElementById('result').textContent = `Volume of Excavation: ${volume.toFixed(2)} cubic meters`;
+}
+  </script>
+</head>
+<body>
+  <h1>Excavation Calculator</h1>
+  
+  <div class="input-container">
+    <label for="length">Length (m):</label>
+    <input type="number" id="length" min="0">
+  </div>
+  
+  <div class="input-container">
+    <label for="width">Width (m):</label>
+    <input type="number" id="width" min="0">
+  </div>
+  
+  <div class="input-container">
+    <label for="depth">Depth (m):</label>
+    <input type="number" id="depth" min="0">
+  </div>
+  
+  <button onclick="calculateExcavation()">Calculate</button>
+  
+  <div id="result"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

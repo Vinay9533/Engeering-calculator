@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Biochemical Oxygen Demand (BOD)</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Biochemical Oxygen Demand (BOD)</h1>
+
+    <label for="sample">Volume of Sample -(VOS)(ml)</label>
+    <input type="number" id="sample" placeholder="Enter volume of sample">
+
+    <label for="diluted-d0">Initial D0 of Diluted Water -(D<sub>0</sub>)(mg/L)</label>
+    <input type="number" id="diluted-d0" placeholder="Enter initial D0 of diluted water">
+
+    <label for="diluted-d3">D0 at End of 3 Days for Diluted Water -(D<sub>3</sub>) (mg/L)</label>
+    <input type="number" id="diluted-d3" placeholder="Enter D0 at end of 3 days for diluted water">
+
+    <label for="distilled-d0">Initial D0 of Distilled Water -(C<sub>0</sub>)(mg/L)</label>
+    <input type="number" id="distilled-d0" placeholder="Enter initial D0 of distilled water">
+
+    <label for="distilled-d3">D0 at End of 3 Days for Distilled Water-(C<sub>3</sub>) (mg/L)</label>
+    <input type="number" id="distilled-d3" placeholder="Enter D0 at end of 3 days for distilled water">
+
+    <button onclick="calculateBOD()">Calculate</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateBOD() {
+      // Read input values
+      var volumeSample = parseFloat(document.getElementById('sample').value);
+      var dilutedD0 = parseFloat(document.getElementById('diluted-d0').value);
+      var dilutedD3 = parseFloat(document.getElementById('diluted-d3').value);
+      var distilledD0 = parseFloat(document.getElementById('distilled-d0').value);
+      var distilledD3 = parseFloat(document.getElementById('distilled-d3').value);
+
+      // Calculate BOD
+      var dilutionFactor = (dilutedD3 - dilutedD0) / (distilledD3 - distilledD0);
+      var bod = ((dilutedD0 - dilutedD3) - (distilledD0 - distilledD3))  * 300 / volumeSample;
+
+      // Display result
+      document.getElementById('result').textContent = 'Biochemical Oxygen Demand (BOD): ' + bod.toFixed(2) + ' mg/L';
+    }
+  </script>
+</body>
+</html>

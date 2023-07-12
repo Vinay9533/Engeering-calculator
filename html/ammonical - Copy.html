@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ammonical Nitrogen Test</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }</style>
+    <script>
+    function calculateAmmonicalNitrogen() {
+      // Read input values
+      var sampleReading = parseFloat(document.getElementById('sample').value);
+      var blankReading = parseFloat(document.getElementById('blank').value);
+      var normalityH2SO4 = parseFloat(document.getElementById('normality').value);
+      var volumeSample = parseFloat(document.getElementById('volume').value);
+
+      // Perform calculation
+      var correctedSampleReading = sampleReading - blankReading;
+      var ammonicalNitrogen = (correctedSampleReading * normalityH2SO4 * 14 * 1000) / volumeSample;
+
+      // Display result
+      document.getElementById('result').textContent = 'Ammonical Nitrogen: ' + ammonicalNitrogen.toFixed(2) + ' mg/L';
+    }
+  </script>
+</head>
+
+
+<body>
+  <div class="container">
+    <h1>Ammonical Nitrogen Test</h1>
+
+    <label for="sample">Sample Reading (ml)</label>
+    <input type="number" id="sample" placeholder="Enter sample reading">
+
+    <label for="blank">Blank Reading (ml)</label>
+    <input type="number" id="blank" placeholder="Enter blank reading">
+
+    <label for="normality">Normality of H<sub>2</sub>SO<sub>4</sub></label>
+    <input type="number" id="normality" placeholder="Enter normality">
+
+    <label for="volume">Volume of Sample (ml)</label>
+    <input type="number" id="volume" placeholder="Enter volume of sample">
+
+    <button onclick="calculateAmmonicalNitrogen()">Calculate</button>
+
+    <div id="result"></div>
+  </div>
+</body>
+</html>

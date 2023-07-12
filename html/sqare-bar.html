@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Square Bar Weight Calculator</title>
+ <link rel="stylesheet" href="../styles/sqare-bar.css">
+ <link rel="stylesheet" href="../nav-bars/nav-bar.css/metal-nav.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="  https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+ 
+
+</head>
+<body>
+  <div class="imge-div"> <h1>
+    <img class="diagram" src="../images/pic (1) (1) (1).jpg" style="width: 55px;">
+  <span style="position: absolute;">Engineering Calculator(+ - / %)</span></h1>
+  </div>
+  <div> 
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Engineering Calculator</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html"> <strong>Home</strong><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+           <a href="../html/pipes.html" class="nav-link">
+             <strong>Pipe</strong></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../html/profile.html"><strong>profile</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../html/m angelia.html"><strong>MS Angle</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="../html/us profile.html"><strong>U Profile </strong></a>
+           
+            </li>
+            <li class="nav-item">
+             <a class="nav-link " href="../html/hexagonal.html"><strong>Hexagonal </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="../html/sheet-metal.html"><strong>Sheet </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link " href="../html/round bar.html"><strong>Round </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link kk" href="../html/sqare-bar.html"><strong>Sqare</strong></a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#"><strong>I/H Profile</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../html/t profile.html"><strong> T Profile</strong></a>
+          </li>
+        </ul>
+      </div>
+      
+      
+    </nav>
+   </div><br> 
+  <div class="container">
+    <h2>Square Bar Weight Calculator</h2>
+    <div class="form-group">
+      <label for="dimension-a">Dimension A:</label>
+      <input type="number" id="dimension-a" placeholder="Enter dimension A" step="0.01" min="0" required>
+    </div>
+    <div class="form-group">
+      <label for="length">Length:</label>
+      <input type="number" id="length" placeholder="Enter length" step="0.01" min="0" required>
+      <select id="unit">
+        <option value="mm">mm</option>
+        <option value="m">m</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="material">Material:</label>
+      <select id="material">
+        <option value="7.86">Iron</option>
+        <option value="7.95">Stainless Steel</option>
+        <option value="8.96">Copper</option>
+        <option value="8.73">Brass</option>
+        <option value="7.2">Cast Iron</option>
+        <option value="2.7">Aluminum</option>
+        <option value="2.7">6061 Aluminum (AlMg1SiCu)</option>
+        <option value="2.8">7005 Aluminum (AlZn4,5Mg1,5Mn)</option>
+        <option value="2.8">7020 Aluminum (AlZn4,5Mg1)</option>
+        <option value="2.8">7075 Aluminum (AlZn5,5MgCu)</option>
+        <option value="21.45">Platinum</option>
+        <option value="19.3">Gold</option>
+        <option value="10.5">Silver</option>
+        <option value="11.3">Plumbum</option>
+        <option value="8.8">Bronze</option>
+        <option value="8.35">Nickel</option>
+        <option value="8.3">Nichrome</option>
+        <option value="7.3">Tin</option>
+        <option value="7.1">Chrome</option>
+        <option value="7.1">Zinc</option>
+        <option value="4.6">Titanium</option>
+        <option value="2.8">Skandium</option>
+        <option value="2.8">Duralumin</option>
+        <option value="2.25">Teflon</option>
+        <option value="1.8">Paronite</option>
+        <option value="1.74">Magnesium</option>
+        <option value="1.7">Carbon</option>
+        <option value="1.42">Delrin</option>
+        <option value="1.41">Polyoxymethylene</option>
+        <option value="1.4">Fiber</option>
+        <option value="1.35">Polyacetal - pom</option>
+        <option value="1.35">Textolite</option>
+        <option value="1.2">Kestamid</option>
+        <option value="1.2">Polyamide</option>
+        <option value="1.2">Polietilen</option>
+        <option value="1.2">Poliemit</option>
+        <option value="1.15">Caprolon (PA 6)</option>
+        <option value="1.0">Alpolen</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" placeholder="Enter quantity" step="1" min="1" value="1" required>
+    </div>
+    <button onclick="calculateWeight()">Calculate</button>
+    <div id="result"></div>
+
+  </div>
+  <script src="../javascript/sqare-bar.js"></script>
+
+</body></html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Language Change</title>
+    <script src="../javascript/plaster.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+    .calculator {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.input-section {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  background-color: green;
+    color: white;
+}
+
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
+
+<script>
+    function calculatePlaster() {
+  var unit = document.getElementById('unit').value;
+  var plasterType = parseFloat(document.getElementById('plaster-type').value);
+  var lengthRow1 = parseFloat(document.getElementById('length-row1').value);
+  var lengthRow2 = parseFloat(document.getElementById('length-row2').value);
+  var widthRow1 = parseFloat(document.getElementById('width-row1').value);
+  var widthRow2 = parseFloat(document.getElementById('width-row2').value);
+  var grade = document.getElementById('grade').value;
+
+  if (isNaN(lengthRow1) || isNaN(lengthRow2) || isNaN(widthRow1) || isNaN(widthRow2)) {
+    document.getElementById('result').textContent = 'Please enter valid values for length and width.';
+    return;
+  }
+
+  var lengthUnit, widthUnit, area;
+  var plasterQuantity, cementQuantity, sandQuantity;
+
+  if (unit === 'feet') {
+    lengthRow1 *= 0.3048; // Convert length to meters
+    lengthRow2 *= 0.3048; // Convert length to meters
+    widthRow1 *= 0.3048; // Convert width to meters
+    widthRow2 *= 0.3048; // Convert width to meters
+    lengthUnit = 'ft<sup>2</sup>';
+    widthUnit = 'ft<sup>2</sup>';
+  } else {
+    lengthUnit = 'm<sup>2</sup>';
+    widthUnit = 'm<sup>2</sup>';
+  }
+
+  area = (lengthRow1 + lengthRow2) * (widthRow1 + widthRow2);
+  plasterQuantity = area * plasterType / 1000; // Assuming plaster density of 1.5 gm/cm^3
+  cementQuantity = area * parseFloat(grade.split(':')[0]) / 1440; // Assuming cement density of 1440 kg/m^3
+  sandQuantity = area * parseFloat(grade.split(':')[1]) / 1600; // Assuming sand density of 1600 kg/m^3
+
+  document.getElementById('result').innerHTML = `Total Area: ${area.toFixed(2)} ${lengthUnit}<br>
+    Plaster Quantity: ${plasterQuantity.toFixed(2)} m<sup>3</sup><br>
+    Cement Quantity: ${cementQuantity.toFixed(2)} bags<br>
+    Sand Quantity: ${sandQuantity.toFixed(2)} tons`;
+}
+</script>
+<link rel="stylesheet" href="../nav-bars/nav-bar.css/consract.css">
+
+</head>
+<body>
+
+  <div class="imge-div" style="margin-top: -20px;"> <h1>
+    <img class="diagram" src="../images/pic (1) (1) (1).jpg" style="width: 55px;">
+  <span style="position: absolute;">Engineering Calculator(+ - / %)</span></h1>
+  </div>
+  <div> 
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Engineering Calculator</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html"> <strong>Home</strong><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+           <a href="../html/vinnuconcract.html" class="nav-link">
+             <strong>Construction Cost Estimator</strong></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link " href="../html/vinnu2cementconstroct.html"><strong>Cement Concrete</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="../html/bricks.html"><strong>Brick</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link kk" href="../html/plastering.html"><strong>Plastering </strong></a>
+           
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="../html/tank.html"><strong>Tank Volume </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="../html/steel - Copy.html"><strong>Steel Weight </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="../html/flooring.html"><strong>Flooring </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="../html/excatavion.html"><strong>Excavation </strong></a>
+           </li>
+        </ul>
+      </div>
+      
+      
+    </nav>
+   </div><br> 
+<div class="calculator">
+ <h2>Plaster Calculator</h2>
+ <div class="input-section">
+ <label for="unit">Unit:</label>
+<select id="unit">
+ <option value="meter">Meter / CM</option>
+ <option value="feet">Feet / Inch</option>
+</select>
+ </div>
+ <div class="input-section">
+ <label for="plaster-type">Plaster Type:</label>
+<select id="plaster-type">
+<option value="12">12mm</option>
+ <option value="15">15mm</option>
+ <option value="18">18mm</option>
+ <option value="20">20mm</option>
+ </select>
+ </div>
+<div class="input-section">
+ <label for="length-row1">Length (Row 1):</label>
+ <input type="number" id="length-row1">
+<span id="length-row1-unit"></span>
+ </div>
+ <div class="input-section">
+ <label for="length-row2">Length (Row 2):</label>
+ <input type="number" id="length-row2">
+ <span id="length-row2-unit"></span>
+ </div>
+ <div class="input-section">
+ <label for="width-row1">Width (Row 1):</label>
+ <input type="number" id="width-row1">
+ <span id="width-row1-unit"></span>
+ </div>
+ <div class="input-section">
+<label for="width-row2">Width (Row 2):</label>
+ <input type="number" id="width-row2">
+ <span id="width-row2-unit"></span>
+ </div>
+ <div class="input-section">
+<label for="grade">Grade of Mortar:</label>
+ <select id="grade">
+ <option value="1:3">C.M 1:3</option>
+ <option value="1:4">C.M 1:4</option>
+ <option value="1:5">C.M 1:5</option>
+ <option value="1:6">C.M 1:6</option>
+ </select>
+ </div>
+ <button onclick="calculatePlaster()">Calculate</button>
+<div id="result"></div>
+</div>
+</body> 
+</html>
+

@@ -1,0 +1,31 @@
+<html>
+    <script src="script.js"></script>
+
+<head>
+  <title>Cement Concrete Calculator</title>
+  <link rel="stylesheet" type="text/css" href="cnc.css">
+</head>
+<body>
+  <h1>Cement Concrete Calculator</h1>
+  
+  <div class="input-container">
+    <label for="length">Length (m):</label>
+    <input type="number" id="length" min="0">
+  </div>
+  
+  <div class="input-container">
+    <label for="width">Width (m):</label>
+    <input type="number" id="width" min="0">
+  </div>
+  
+  <div class="input-container">
+    <label for="thickness">Thickness (m):</label>
+    <input type="number" id="thickness" min="0">
+  </div>
+  
+  <button onclick="calculateConcrete()">Calculate</button>
+  
+  <div id="result"></div>
+  
+</body>
+</html>

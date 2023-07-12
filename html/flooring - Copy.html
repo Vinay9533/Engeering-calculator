@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flooring Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    h1 {
+  text-align: center;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+}
+
+input[type="number"] {
+  width: 200px;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+}
+
+#result {
+  text-align: center;
+  font-weight: bold;
+}
+  </style>
+  <script>
+    function calculateFlooring() {
+  // Get the input values
+  const roomLength = parseFloat(document.getElementById('roomLength').value);
+  const roomWidth = parseFloat(document.getElementById('roomWidth').value);
+  const tileLength = parseFloat(document.getElementById('tileLength').value);
+  const tileWidth = parseFloat(document.getElementById('tileWidth').value);
+
+  // Check if the input values are valid
+  if (isNaN(roomLength) || isNaN(roomWidth) || isNaN(tileLength) || isNaN(tileWidth) || roomLength <= 0 || roomWidth <= 0 || tileLength <= 0 || tileWidth <= 0) {
+    document.getElementById('result').textContent = 'Please enter valid input values.';
+    return;
+  }
+
+  // Calculate the number of tiles required
+  const tilesHorizontal = Math.ceil(roomLength / tileLength);
+  const tilesVertical = Math.ceil(roomWidth / tileWidth);
+  const totalTiles = tilesHorizontal * tilesVertical;
+
+  // Calculate the area of the room and the area covered by tiles
+  const roomArea = roomLength * roomWidth;
+
+  // Display the result
+  document.getElementById('result').textContent=`total room area: ${roomArea}\n square meters`;
+}
+  </script>
+</head>
+<body>
+  <h1>Flooring Calculator</h1>
+  
+  <div class="input-container">
+    <label for="roomLength">Room Length (m):</label>
+    <input type="number" id="roomLength" min="0">
+  </div>
+  
+  <div class="input-container">
+    <label for="roomWidth">Room Width (m):</label>
+    <input type="number" id="roomWidth" min="0">
+  </div>
+  
+  <div class="input-container">
+    <label for="tileLength">Tile Length (m):</label>
+    <input type="number" id="tileLength" min="0">
+  </div>
+  
+  <div class="input-container">
+    <label for="tileWidth">Tile Width (m):</label>
+    <input type="number" id="tileWidth" min="0">
+  </div>
+  
+  <button onclick="calculateFlooring()">Calculate</button>
+  
+  <div id="result"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

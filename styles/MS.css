@@ -1,0 +1,39 @@
+
+
+.input-container {
+  margin-bottom: 10px;
+  max-width: 100%;
+  
+}
+
+label {
+  display: inline-block;
+  width: 100%;
+}
+
+input[type="number"] {
+ width:80%;
+ line-height: 60px;
+ border: 2px solid;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  background-color: green;
+color: white;
+}
+
+#result {
+  text-align: center;
+  font-weight: bold;
+}.first{
+ width: 100%;
+ margin: auto;
+ text-align: center;
+ max-width: 100%;
+ margin: 0 auto;
+ padding: 20px;
+ background-color: #f0f0f0;
+
+}

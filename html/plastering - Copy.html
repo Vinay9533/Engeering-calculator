@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Language Change</title>
+    <script src="script.js"></script>
+<style>
+    .calculator {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.input-section {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+}
+
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+</style>
+
+<script>
+    function calculatePlaster() {
+  var unit = document.getElementById('unit').value;
+  var plasterType = parseFloat(document.getElementById('plaster-type').value);
+  var lengthRow1 = parseFloat(document.getElementById('length-row1').value);
+  var lengthRow2 = parseFloat(document.getElementById('length-row2').value);
+  var widthRow1 = parseFloat(document.getElementById('width-row1').value);
+  var widthRow2 = parseFloat(document.getElementById('width-row2').value);
+  var grade = document.getElementById('grade').value;
+
+  if (isNaN(lengthRow1) || isNaN(lengthRow2) || isNaN(widthRow1) || isNaN(widthRow2)) {
+    document.getElementById('result').textContent = 'Please enter valid values for length and width.';
+    return;
+  }
+
+  var lengthUnit, widthUnit, area;
+  var plasterQuantity, cementQuantity, sandQuantity;
+
+  if (unit === 'feet') {
+    lengthRow1 *= 0.3048; // Convert length to meters
+    lengthRow2 *= 0.3048; // Convert length to meters
+    widthRow1 *= 0.3048; // Convert width to meters
+    widthRow2 *= 0.3048; // Convert width to meters
+    lengthUnit = 'ft<sup>2</sup>';
+    widthUnit = 'ft<sup>2</sup>';
+  } else {
+    lengthUnit = 'm<sup>2</sup>';
+    widthUnit = 'm<sup>2</sup>';
+  }
+
+  area = (lengthRow1 + lengthRow2) * (widthRow1 + widthRow2);
+  plasterQuantity = area * plasterType / 1000; // Assuming plaster density of 1.5 gm/cm^3
+  cementQuantity = area * parseFloat(grade.split(':')[0]) / 1440; // Assuming cement density of 1440 kg/m^3
+  sandQuantity = area * parseFloat(grade.split(':')[1]) / 1600; // Assuming sand density of 1600 kg/m^3
+
+  document.getElementById('result').innerHTML = `Total Area: ${area.toFixed(2)} ${lengthUnit}<br>
+    Plaster Quantity: ${plasterQuantity.toFixed(2)} m<sup>3</sup><br>
+    Cement Quantity: ${cementQuantity.toFixed(2)} bags<br>
+    Sand Quantity: ${sandQuantity.toFixed(2)} tons`;
+}
+</script>
+</head>
+<body>
+    
+    <div class="calculator">
+        <h2>Plaster Calculator</h2>
+        <div class="input-section">
+          <label for="unit">Unit:</label>
+          <select id="unit">
+     <option value="meter">Meter / CM</option>
+            <option value="feet">Feet / Inch</option>
+          </select>
+        </div>
+        <div class="input-section">
+          <label for="plaster-type">Plaster Type:</label>
+          <select id="plaster-type">
+            <option value="12">12mm</option>
+            <option value="15">15mm</option>
+            <option value="18">18mm</option>
+            <option value="20">20mm</option>
+          </select>
+        </div>
+        <div class="input-section">
+          <label for="length-row1">Length (Row 1):</label>
+          <input type="number" id="length-row1">
+          <span id="length-row1-unit"></span>
+        </div>
+        <div class="input-section">
+          <label for="length-row2">Length (Row 2):</label>
+          <input type="number" id="length-row2">
+          <span id="length-row2-unit"></span>
+        </div>
+        <div class="input-section">
+          <label for="width-row1">Width (Row 1):</label>
+          <input type="number" id="width-row1">
+          <span id="width-row1-unit"></span>
+        </div>
+        <div class="input-section">
+          <label for="width-row2">Width (Row 2):</label>
+          <input type="number" id="width-row2">
+          <span id="width-row2-unit"></span>
+        </div>
+        <div class="input-section">
+          <label for="grade">Grade of Mortar:</label>
+          <select id="grade">
+            <option value="1:3">C.M 1:3</option>
+            <option value="1:4">C.M 1:4</option>
+            <option value="1:5">C.M 1:5</option>
+            <option value="1:6">C.M 1:6</option>
+          </select>
+        </div>
+        <button onclick="calculatePlaster()">Calculate</button>
+        <div id="result"></div>
+      </div>
+      
+    
+   </body> 
+</html>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="waterstyle.css">
+    <script src="water.js" defer></script> 
+    <title>Document</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.input-section {
+  margin-bottom: 10px;
+}
+
+.input-section label {
+  display: inline-block;
+  width: 150px;
+}
+
+.result-section {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+button {
+  padding: 5px 10px;
+}
+    </style>
+    <script>
+        function calculateWeight() {
+  var profileA = document.getElementById("profileA").value;
+  var profileB = document.getElementById("profileB").value;
+  var thickness = document.getElementById("thickness").value;
+  var length = document.getElementById("length").value;
+  var material = document.getElementById("material").value;
+  
+  // Calculate weight
+  var weight = calculateWeightFromDimensions(profileA, profileB, thickness, length, material);
+  
+  // Display result
+  var result = document.getElementById("result");
+  result.innerHTML = "Weight: " + weight.toFixed(2) + " g/cm<sup>3</sup>";
+}
+
+function calculateWeightFromDimensions(profileA, profileB, thickness, length, material) {
+  // Define density values in g/cm^3
+  var density = {
+    "Iron": 7.86,
+    "Stainless Steel": 7.95,
+    "Copper": 8.96,
+    "Brass": 8.73,
+    "Cast iron":	7.2,
+"Aluminum"	:2.7,
+"6061 Aluminum (AlMg1SiCu)":	2.7,
+"7005 Aluminum (AlZn4,5Mg1,5Mn)":2.8,
+"7020 Aluminum (AlZn4,5Mg1)":	2.8,
+"7075 Aluminum (AlZn5,5MgCu)":	2.8,
+"Platinum":	21.45,
+"Gold":	19.3,
+"Silver"	:10.5,
+"Plumbum":	11.3,
+"Bronze":	8.8,
+"Nickel"	:8.35,
+"Nichrome"	:8.3,
+"Tin":	7.3,
+"Chrome":	7.1,
+"Zinc":	7.1,
+"Titanium"	:4.6,
+"Skandium"	:2.8,
+"Duralumin"	:2.8,
+"Teflon"	:2.25,
+"Paronite"	:1.8,
+"Magnesium":	1.74,
+"Carbon":	1.7,
+"Delrin":	1.42,
+"Polyoxymethylene":	1.41,
+"Fiber":	1.4,
+"Polyacetal - pom":	1.35,
+"Textolite":	1.35,
+"Kestamid":	1.2,
+"Polyamide":	1.2,
+"Polietilen":	1.2,
+"Poliemit": 	1.2,
+"Caprolon": '(PA 6)',	
+"Alpolen":0.96
+    // Add more density values here
+  };
+  
+  // Get the density for the selected material
+  var materialDensity = density[material];
+  
+  // Calculate the weight
+  var weight = (parseFloat(profileA) + parseFloat(profileB)) * thickness * length * materialDensity;
+  
+  return weight;
+}
+    </script>
+</head>
+<body>
+  
+  <h1>Profile Weight Calculator</h1>
+  
+  <div class="input-section">
+    <label for="profileA">Profile A Dimensions:</label>
+    <input type="text" id="profileA" placeholder="Enter dimensions (e.g., 10x20)">
+  </div>
+  
+  <div class="input-section">
+    <label for="profileB">Profile B Dimensions:</label>
+    <input type="text" id="profileB" placeholder="Enter dimensions (e.g., 15x30)">
+  </div>
+  
+  <div class="input-section">
+    <label for="thickness">Thickness (t):</label>
+    <input type="number" id="thickness" step="0.01" placeholder="Enter thickness">
+  </div>
+  
+  <div class="input-section">
+    <label for="length">Length:</label>
+    <input type="number" id="length" placeholder="Enter length">
+  </div>
+  
+  <div class="input-section">
+    <label for="material">Material:</label>
+    <select id="material">
+      <option value="Iron">Iron</option>
+      <option value="Stainless Steel">Stainless Steel</option>
+      <option value="Copper">Copper</option>
+      <option value="Cast iron">Cast iron</option>
+      <option value="Aluminum">Aluminum</option>
+      <option value="7005 Aluminum (AlZn4,5Mg1,5Mn)">7005 Aluminum (AlZn4,5Mg1,5Mn)</option>
+      <option value="6061 Aluminum (AlMg1SiCu)">6061 Aluminum (AlMg1SiCu)</option>
+      <option value="7020 Aluminum (AlZn4,5Mg1)">7020 Aluminum (AlZn4,5Mg1)</option>
+      <option value="7075 Aluminum (AlZn5,5MgCu)">7075 Aluminum (AlZn5,5MgCu)</option>
+      <option value="Platinum">Platinum</option>
+      <option value="Gold">Gold</option>
+      <option value="Silver">Silver</option>
+      <option value="Plumbum">Plumbum</option>
+      <option value="Bronze">Bronze</option>
+      <option value="Nickel">Nickel</option>
+      <option value="Nichrom">Nichrom</option>
+      <option value="Tin">Tin</option>
+      <option value="Chrome">Chrome</option>
+      <option value="Zinc">Zinc</option>
+      <option value="Titanium">Titanium</option>
+      <option value="Skandium">Skandium</option>
+      <option value="Duralumin">Duralumin</option>
+      <option value="Teflon">Teflon</option>
+      <option value="Paronite">Paronite</option>
+      <option value="Magnesium">Magnesium</option>
+      <option value="Carbon">Carbon</option>
+      <option value="Delrin">Delrin</option>
+      <option value="Polyoxymethylene">Polyoxymethylene</option>
+      <option value="Fiber">Fiber</option>
+      <option value="Polyacetal - pom">Polyacetal - pom</option>
+      <option value="Textolite">Textolite</option>
+      <option value="Kestamid">Kestamid</option>
+      <option value="Polyamide">Polyamide</option>
+      <option value="Polietilen">Polietilen</option>
+      <option value="Poliemit">Poliemit</option>
+      <option value="Caprolon">Caprolon</option>
+      <option value="Alpolen">Alpolen</option>
+      
+      <!-- Add more material options here -->
+    </select>
+  </div>
+  
+  <div class="input-section">
+    <button onclick="calculateWeight()">Calculate Weight</button>
+  </div>
+  
+  <div id="result" class="result-section"></div>  
+      
+</body>
+</html>

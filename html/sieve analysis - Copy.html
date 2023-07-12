@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sieve.css">
+    <script src="./sieve.js" defer></script> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Sieve Analysis of Soil (Dry Method)</h2>
+        <div class="input-section">
+          <label for="sample-weight">Sample Weight (g):</label>
+          <input type="number" id="sample-weight" step="0.01">
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Sieve Size (mm)</th>
+              <th>Reading (g)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20mm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>10mm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>4.75mm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>2.00mm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>1.18mm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>600 μm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>425 μm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>300 μm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>212 μm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>150 μm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>75 μm</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+            <tr>
+              <td>Pan</td>
+              <td><input type="number" class="sieve-reading" step="0.01"></td>
+            </tr>
+          </tbody>
+        </table>
+        <button onclick="calculateParticleDistribution()">Calculate</button>
+        <div id="result"></div>
+      </div>
+            
+      
+      
+</body>
+</html>

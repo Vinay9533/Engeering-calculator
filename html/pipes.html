@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="../nav-bars/nav-bar.css/metal-nav.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="  https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <style>
+          /* CSS styling */
+          body {
+            font-family: Arial, sans-serif;
+          }
+      
+          .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        
+          }
+      
+          label {
+            font-weight: bold;
+          }
+      
+          input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+           
+          }
+      
+          select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+          }
+      
+          button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+          }
+      
+          #result {
+            font-weight: bold;
+       
+          }
+      
+        </style>
+
+      </head>
+      <body>
+
+          
+        <div class="imge-div"> <h1>
+          <img class="diagram" src="../images/pic (1) (1) (1).jpg" style="width: 55px;">
+     <span style="position: absolute;">Engineering Calculator(+ - / %)</span></h1>
+  </div>
+  <div> 
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Engineering Calculator</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html"> <strong>Home</strong><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+           <a href="../html/pipes.html" class="nav-link kk">
+             <strong>Pipe</strong></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link " href="../html/profile.html"><strong>profile</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="../html/m angelia.html"><strong>MS Angle</strong></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="../html/us profile.html"><strong>U Profile </strong></a>
+           
+            </li>
+            <li class="nav-item">
+             <a class="nav-link " href="../html/hexagonal.html"><strong>Hexagonal </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="../html/sheet-metal.html"><strong>Sheet </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="../html/round bar.html"><strong>Round </strong></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="../html/sqare-bar.html"><strong>Sqare</strong></a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#"><strong>I/H Profile</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../html/t profile.html"><strong> T Profile</strong></a>
+          </li>
+        </ul>
+      </div>
+      
+      
+    </nav>
+   </div><br> 
+ 
+        <div class="container">
+          <h2>Pipe Weight Calculator</h2>
+          <form id="pipeForm">
+            <label for="diameter">Diameter of pipe (Ø):</label>
+            <input type="number" id="diameter" step="0.01" placeholder="Enter diameter (in mm)" required>
+            
+            <label for="thickness">Thickness (t):</label>
+            <input type="number" id="thickness" step="0.01" placeholder="Enter thickness (in mm)" required>
+            
+            <label for="length">Length of pipe:</label>
+            <input type="number" id="length" step="0.01" placeholder="Enter length (in meters)" required>
+            
+            <label for="material">Material:</label>
+            <select id="material" required>
+              <option value="7.86">Iron</option>
+              <option value="7.95">Stainless Steel</option>
+              <option value="8.96">Copper</option>
+              <option value="8.73">Brass</option>
+              <option value="7.2">Cast iron</option>
+              <option value="2.7">Aluminum</option>
+              <option value="2.7">6061 Aluminum (AlMg1SiCu)</option>
+              <option value="2.8">7005 Aluminum (AlZn4,5Mg1,5Mn)</option>
+              <option value="2.8">7020 Aluminum (AlZn4,5Mg1)</option>
+              <option value="2.8">7075 Aluminum (AlZn5,5MgCu)</option>
+              <option value="21.45">Platinum</option>
+              <option value="19.3">Gold</option>
+              <option value="10.5">Silver</option>
+              <option value="11.3">Plumbum</option>
+              <option value="8.8">Bronze</option>
+              <option value="8.35">Nickel</option>
+              <option value="8.3">Nichrome</option>
+              <option value="7.3">Tin</option>
+              <option value="7.1">Chrome</option>
+              <option value="7.1">Zinc</option>
+              <option value="4.6">Titanium</option>
+              <option value="2.8">Skandium</option>
+              <option value="2.8">Duralumin</option>
+              <option value="2.25">Teflon</option>
+              <option value="1.8">Paronite</option>
+              <option value="1.74">Magnesium</option>
+              <option value="1.7">Carbon</option>
+              <option value="1.42">Delrin</option>
+              <option value="1.41">Polyoxymethylene</option>
+              <option value="1.4">Fiber</option>
+              <option value="1.35">Polyacetal - pom</option>
+              <option value="1.35">Textolite</option>
+              <option value="1.2">Kestamid</option>
+              <option value="1.2">Polyamide</option>
+              <option value="1.2">Polietilen</option>
+              <option value="1.2">Poliemit</option>
+              <option value="1.15">Caprolon (PA 6)</option>
+              <option value="1.0">Alpolen</option>
+              <!-- Add more options for materials -->
+            </select>
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" value="1" step="1" required>
+      
+            <button type="button" onclick="calculateWeight()">Calculate</button>
+          </form>
+      
+          <div id="result"></div>
+        </div>
+
+        <script>
+          // JavaScript code
+          function calculateWeight() {
+            var diameter = document.getElementById("diameter").value;
+            var thickness = document.getElementById("thickness").value;
+            var length = document.getElementById("length").value;
+            var material = document.getElementById("material").value;
+            var quantity = document.getElementById("quantity").value;
+      
+            // Convert diameter and thickness from mm to meters
+            diameter = diameter / 1000;
+            thickness = thickness / 1000;
+      
+            var weight = Math.PI * material * thickness * (diameter - thickness) * length * quantity;
+      
+            document.getElementById("result").innerHTML = "Weight of the pipe: " + weight.toFixed(2) + " kg";
+          }
+        </script>
+      
+
+    
+    
+  
+  
+            
+      
+      
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+}
+
+input[type="number"] {
+  width: 100%;
+}
+
+button {
+ 
+  margin: 10px auto;
+background-color: green;
+color: white;
+}
+
+#result{
+  text-align: center;
+  font-weight: bold;
+}.first{
+  margin: auto;
+  width: 100%;
+
+  text-align: center;
+}

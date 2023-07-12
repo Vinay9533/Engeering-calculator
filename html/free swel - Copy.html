@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./free swell.css">
+    <script src="./freeswell.js" defer></script> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Free Swell Index Calculator</h2>
+        <div class="input-section">
+          <label for="distilled-water-height">Volume Height of Soil in Distilled Water (mm):</label>
+          <input type="number" id="distilled-water-height" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="kerosene-height">Volume Height of Soil in Kerosene (mm):</label>
+          <input type="number" id="kerosene-height" step="0.01">
+        </div>
+        <button onclick="calculateFreeSwellIndex()">Calculate</button>
+        <div id="result"></div>
+      </div>
+         
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+
+.diagram{
+    font-size: 25px;
+    border-radius:15px;
+    font-size: 35px;
+    margin-left: 12px;
+    padding: 10px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    }
+    .imge-div h1{
+        margin-top:12px;
+        color:blue;
+        text-shadow: 1px 4px 2px black;
+        font-size: 35px;
+   
+        
+    }
+    span{
+        border-bottom: 5px solid blue;
+    }
+    
+    .kk{
+        
+      
+        height: 5ex;
+        border-bottom: 2px solid white;
+        border-radius: 5px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+  
+    }
+
+    @media only screen and (max-width: 600px) {
+        .imge-div h1{
+            font-size: 15px; 
+            border: none;
+            
+        }span{
+            margin-top: 14px;
+        }
+    }

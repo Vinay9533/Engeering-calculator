@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MS Angle (L Profile) Weight Calculator</title>
+  <style>
+    /* Add your CSS styles here */
+  </style>
+  
+     <script>
+    function calculateWeight() {
+      var cornerRadius = document.getElementById('cornerRadius').value;
+      var dimensionA = document.getElementById('dimensionA').value;
+      var dimensionB = document.getElementById('dimensionB').value;
+      var thickness = document.getElementById('thickness').value;
+      var length = document.getElementById('length').value;
+      var material = document.getElementById('material').value;
+
+      // Calculate weight
+      var weight = calculateLProfileWeight(cornerRadius, dimensionA, dimensionB, thickness, length, getMaterialDensity(material));
+
+      // Display the result
+      var result = document.getElementById('result');
+      result.innerHTML = 'Weight: ' + weight.toFixed(2) + ' g';
+
+      // Draw diagram
+      drawDiagram(cornerRadius, dimensionA, dimensionB);
+    }
+
+    function calculateLProfileWeight(cornerRadius, dimensionA, dimensionB, thickness, length, density) {
+      // Calculate weight using formula: weight = [(A - B) * t + (B * (A - t))] * L * density
+      var weight = ((dimensionA - dimensionB) * thickness + (dimensionB * (dimensionA - thickness))) * length * density;
+      return weight;
+    }
+
+    function getMaterialDensity(material) {
+      // Define material densities here
+      var materialDensities = {
+        "Iron": 7.86,
+        "Stainless Steel": 7.95,
+        "Copper": 8.96,
+        "Brass": 8.73,
+        "Cast iron":	7.2,
+"Aluminum"	:2.7,
+"6061 Aluminum (AlMg1SiCu)":	2.7,
+"7005 Aluminum (AlZn4,5Mg1,5Mn)":2.8,
+"7020 Aluminum (AlZn4,5Mg1)":	2.8,
+"7075 Aluminum (AlZn5,5MgCu)":	2.8,
+"Platinum":	21.45,
+"Gold":	19.3,
+"Silver"	:10.5,
+"Plumbum":	11.3,
+"Bronze":	8.8,
+"Nickel"	:8.35,
+"Nichrome"	:8.3,
+"Tin":	7.3,
+"Chrome":	7.1,
+"Zinc":	7.1,
+"Titanium"	:4.6,
+"Skandium"	:2.8,
+"Duralumin"	:2.8,
+"Teflon"	:2.25,
+"Paronite"	:1.8,
+"Magnesium":	1.74,
+"Carbon":	1.7,
+"Delrin":	1.42,
+"Polyoxymethylene":	1.41,
+"Fiber":	1.4,
+"Polyacetal - pom":	1.35,
+"Textolite":	1.35,
+"Kestamid":	1.2,
+"Polyamide":	1.2,
+"Polietilen":	1.2,
+"Poliemit": 	1.2,
+"Caprolon": '(PA 6)',	
+"Alpolen":0.96
+        // Add more material densities here
+      };
+
+      return materialDensities[material];
+    }
+
+    function drawDiagram(cornerRadius, dimensionA, dimensionB) {
+      // Implement diagram drawing logic here
+    }
+  </script>
+  
+</head>
+<body>
+  <h1>MS Angle (L Profile) Weight Calculator</h1>
+
+  <div>
+    <label for="cornerRadius">Corner Radius:</label>
+    <input type="number" id="cornerRadius" step="0.01" placeholder="Enter corner radius">
+  </div>
+
+  <div>
+    <label for="dimensionA">Dimension A:</label>
+    <input type="number" id="dimensionA" step="0.01" placeholder="Enter dimension A">
+  </div>
+
+  <div>
+    <label for="dimensionB">Dimension B:</label>
+    <input type="number" id="dimensionB" step="0.01" placeholder="Enter dimension B">
+  </div>
+
+  <div>
+    <label for="thickness">Thickness (t):</label>
+    <input type="number" id="thickness" step="0.01" placeholder="Enter thickness">
+  </div>
+
+  <div>
+    <label for="length">Length of L Profile:</label>
+    <input type="number" id="length" placeholder="Enter length">
+  </div>
+
+  <div>
+    <label for="material">Material:</label>
+    <select id="material">
+      <option value="Iron">Iron</option>
+      <option value="Stainless Steel">Stainless Steel</option>
+      <option value="Copper">Copper</option>
+      <option value="Brass">Brass</option>
+      <option value="Cast iron">Cast iron</option>
+      <option value="Aluminum">Aluminum</option>
+      <option value="7005 Aluminum (AlZn4,5Mg1,5Mn)">7005 Aluminum (AlZn4,5Mg1,5Mn)</option>
+      <option value="6061 Aluminum (AlMg1SiCu)">6061 Aluminum (AlMg1SiCu)</option>
+      <option value="7020 Aluminum (AlZn4,5Mg1)">7020 Aluminum (AlZn4,5Mg1)</option>
+      <option value="7075 Aluminum (AlZn5,5MgCu)">7075 Aluminum (AlZn5,5MgCu)</option>
+      <option value="Platinum">Platinum</option>
+      <option value="Gold">Gold</option>
+      <option value="Silver">Silver</option>
+      <option value="Plumbum">Plumbum</option>
+      <option value="Bronze">Bronze</option>
+      <option value="Nickel">Nickel</option>
+      <option value="Nichrom">Nichrom</option>
+      <option value="Tin">Tin</option>
+      <option value="Chrome">Chrome</option>
+      <option value="Zinc">Zinc</option>
+      <option value="Titanium">Titanium</option>
+      <option value="Skandium">Skandium</option>
+      <option value="Duralumin">Duralumin</option>
+      <option value="Teflon">Teflon</option>
+      <option value="Paronite">Paronite</option>
+      <option value="Magnesium">Magnesium</option>
+      <option value="Carbon">Carbon</option>
+      <option value="Delrin">Delrin</option>
+      <option value="Polyoxymethylene">Polyoxymethylene</option>
+      <option value="Fiber">Fiber</option>
+      <option value="Polyacetal - pom">Polyacetal - pom</option>
+      <option value="Textolite">Textolite</option>
+      <option value="Kestamid">Kestamid</option>
+      <option value="Polyamide">Polyamide</option>
+      <option value="Polietilen">Polietilen</option>
+      <option value="Poliemit">Poliemit</option>
+      <option value="Caprolon">Caprolon</option>
+      <option value="Alpolen">Alpolen</option>
+      
+    </select>
+  </div>
+
+  <button onclick="calculateWeight()">Calculate Weight</button>
+
+  <div id="result"></div>

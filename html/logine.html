@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: rgba(9, 9, 36, 0.97);
+                color: aliceblue;
+                font-family: Arial, Helvetica, sans-serif;
+            }.div1{
+                border: 1px solid rgba(0, 0, 0, 0.089);
+                width: 450px;
+                height: 350px;
+                padding: 35px;
+                margin: auto;
+                margin-top: 200px;
+                background-color: rgba(0, 0, 0, 0.352);
+              
+                border-radius: 10px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.961);
+            }input{
+             width: 350px;
+             height: 32px;
+             background-color: black;
+             color:aliceblue
+             }h2{
+                text-align: center;
+                padding: 25px;
+            }button{
+                margin-top: 45px;
+                padding: 12px 20px;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: 800;
+                font-size:large;
+                background-color: rgba(0, 0, 0, 0.352);
+              color: aqua;
+              text-shadow: 0px 3px 3px;
+              background-color: green;
+              color: white;
+                
+            }button:active{
+                border: 2px solid green;
+                box-shadow:0px 0px 5px;
+            }
+                
+            
+            
+            
+        </style>
+        <script>
+
+            function validate(){
+         var user=document.getElementById("user");
+         var psw =document.getElementById("psw");
+         //var regx=/([^a-z]+)@gamil\.([a-z]{2,20})$/;
+
+         if(user.value==""){
+                   
+                  user.style.border="solid 2px red";
+                  document.getElementById("ss").style.visibility="visible";
+                  return false;
+                
+                }else if(psw.value==""){
+                    psw.style.border="solid 2px red";
+                    document.getElementById("ss2").style.visibility="visible";
+                    return false;
+
+        }else if(psw.value.length>7){
+            document.getElementById("ss2").style.visibility="visible";
+            return false;
+
+        }else if(psw.value.length<5){
+            document.getElementById("ss2").style.visibility="visible";
+
+        }else{
+            document.getElementById("ss2").style.visibility="hidden";
+        }
+        
+    }
+        </script>
+
+    </head>
+    <body>
+        <div class="div1">
+            <form onclick="return validate();">
+<h2>Login</h2>
+<label for="text" class="lbl">Username</label><br>
+<input type="text" id="user" autofocus><br>
+<label id="ss" style="visibility: hidden; color:red;">invalid</label><br><br>
+<label for="psw" class="lbl1">Password</label><br>
+<input type="password" id="psw"><br>
+<label id="ss2" style="visibility: hidden; color:red;">invalid</label><br>
+<button type="submit">submit</button></form>
+</div>
+        
+    </body>
+</html>

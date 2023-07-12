@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>Language Change</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+ <script src="script.js"></script>
+<style>
+    .calculator {
+ max-width: 400px;
+ margin: 0 auto;
+ padding: 20px;
+ background-color: #f0f0f0;
+}
+
+.input-section {
+ margin-bottom: 10px;
+}
+
+label {
+display: block;
+ margin-bottom: 5px;
+}
+
+input, select {
+ width: 100%;
+ height: 30px;
+ padding: 5px;
+ font-size: 14px;
+}
+
+button {
+ width: 100%;
+height: 40px;
+ font-size: 16px;
+}
+
+#result {
+margin-top: 10px;
+ font-weight: bold;
+}
+
+
+</style>
+<link rel="stylesheet" href="../nav-bars/nav-bar.css/consract.css">
+
+<script>
+    function calculateArea() {
+ var lengthFt = parseInt(document.getElementById('length-ft').value);
+ var lengthIn = parseInt(document.getElementById('length-in').value);
+ var breadthFt = parseInt(document.getElementById('breadth-ft').value);
+ var breadthIn = parseInt(document.getElementById('breadth-in').value);
+ var roomType = document.getElementById('room-type').value;
+
+ if (isNaN(lengthFt) || isNaN(lengthIn) || isNaN(breadthFt) || isNaN(breadthIn)) {
+ document.getElementById('result').textContent = 'Please enter valid values.';
+ return;
+ }
+
+var length = lengthFt + (lengthIn / 12);
+var breadth = breadthFt + (breadthIn / 12);
+
+ var carpetArea = length * breadth;
+ var builtUpArea = carpetArea + (carpetArea * 0.1); // Assuming 10% additional area for walls
+ var superBuiltUpArea = builtUpArea + (builtUpArea * 0.2); // Assuming 20% additional area for common spaces
+
+ var result = '';
+
+switch (roomType) {
+ case 'bedroom':
+result = `Carpet Area: ${carpetArea.toFixed(2)} sq.ft\nBuilt-up Area: ${builtUpArea.toFixed(2)} sq.ft\nSuper Built-up Area: ${superBuiltUpArea.toFixed(2)} sq.ft`;
+break;
+ case 'living':
+ case 'dining':
+case 'kitchen':
+ result = `Carpet Area: ${carpetArea.toFixed(2)} sq.ft\nBuilt-up Area: ${builtUpArea.toFixed(2)} sq.ft\nSuper Built-up Area: ${superBuiltUpArea.toFixed(2)} sq.ft`;
+break;
+ case 'balcony':
+ case 'passage':
+ case 'duct':
+case 'garden':
+case 'lobby':
+case 'lift':
+ case 'gym':
+ case 'swimming-pool':
+ case 'terrace':
+ case 'staircase':
+ result = `Area: ${carpetArea.toFixed(2)} sq.ft`;
+ break;
+ case 'bathroom':
+ result = `Area: ${carpetArea.toFixed(2)} sq.ft`;
+break;
+ default:
+ result = 'Invalid room type.';
+ }
+
+document.getElementById('result').textContent = result;
+}
+
+</script>
+</head>
+
+
+
+
+<body>
+
+
+
+    <div class="imge-div"> <h1>
+        <img class="diagram" src="../images/vinnuss.jpeg" style="width: 55px;">
+      <span style="position: absolute;top:35px;">Engineering Calculator </span></h1>
+      </div>
+      
+            
+          <div class="menu">
+      
+              <div class="rs">
+                  <a href="../html/vinnuconcract.html" class="h">
+                      <h8>Construction Cost Estimator</h8>
+                  </a>
+                  <a href="../html/vinnu2cementconstroct.html" class="h">Cement Concrete </a>
+                  <a href="../html/bricks.html" class="h ">Brick </a>
+                  <a href="../html/plastering.html" class="h">Plastering </a>
+                  <a href="../html/tank.html" class="h">Tank Volume </a>
+                  <a href="#" class="h">Steel Weight </a>
+                  <a href="#" class="h">Flooring </a>
+                  <a href="#" class="h">Excavation </a>
+              </div>
+          </div>
+      
+
+
+ <div class="calculator">
+ <h2>Area Calculator</h2>
+ <div class="input-section">
+ <label for="length">Length (ft):</label>
+<input type="number" id="length-ft">
+<label for="length-in">Length (in):</label>
+ <input type="number" id="length-in">
+ </div>
+ <div class="input-section">
+ <label for="breadth">Breadth (ft):</label>
+ <input type="number" id="breadth-ft">
+ <label for="breadth-in">Breadth (in):</label>
+ <input type="number" id="breadth-in">
+ </div>
+ <div class="input-section">
+ <label for="room-type">Room Type:</label>
+ <select id="room-type">
+<option value="bedroom">Bedroom</option>
+ <option value="living">Living Room</option>
+ <option value="balcony">Balcony</option>
+ <option value="dining">Dining Room</option>
+ <option value="kitchen">Kitchen</option>
+ <option value="passage">Passage</option>
+ <option value="duct">Duct</option>
+ <option value="garden">Garden</option>
+ <option value="bathroom">Bathroom</option>
+ <option value="lobby">Lobby</option>
+<option value="lift">Lift</option>
+ <option value="gym">Gym</option>
+ <option value="swimming-pool">Swimming Pool</option>
+ <option value="terrace">Terrace</option>
+ <option value="staircase">Staircase</option>
+</select>
+</div>
+ <button onclick="calculateArea()">Calculate</button>
+<div id="result"></div>
+        </div>
+</body> 
+</html>
+

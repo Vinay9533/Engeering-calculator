@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ammonical Nitrogen Test</title>
+  <link rel="stylesheet" type="text/css" href="../nav-bars/nav-bar.css/enviriralament.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+  <style>
+    /* CSS styles */
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }</style>
+    <script>
+    function calculateAmmonicalNitrogen() {
+      // Read input values
+      var sampleReading = parseFloat(document.getElementById('sample').value);
+      var blankReading = parseFloat(document.getElementById('blank').value);
+      var normalityH2SO4 = parseFloat(document.getElementById('normality').value);
+      var volumeSample = parseFloat(document.getElementById('volume').value);
+
+      // Perform calculation
+      var correctedSampleReading = sampleReading - blankReading;
+      var ammonicalNitrogen = (correctedSampleReading * normalityH2SO4 * 14 * 1000) / volumeSample;
+
+      // Display result
+      document.getElementById('result').textContent = 'Ammonical Nitrogen: ' + ammonicalNitrogen.toFixed(2) + ' mg/L';
+    }
+  </script>
+</head>
+
+
+<body>
+       
+  <div class="imge-div"> <h1>
+    <img class="diagram" src="../images/pic (1) (1) (1).jpg" style="width: 55px;">
+<span style="position: absolute;">Engineering Calculator(+ - / %)</span></h1>
+</div>
+<div> 
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Engineering Calculator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html"> <strong>Home</strong><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+         <a href="../html/chemical.html" class="nav-link">
+           <strong>Chemical Oxygen Demand</strong></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="../html/biochemical.html"><strong>Biochemical Oxygen Demand</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link kk" href="../html/ammonical.html"><strong>Ammonical Nitrogen Measurement Calculation</strong></a>
+          </li></ul>
+        </div>
+        
+        
+      </nav>
+     </div><br> 
+  <div class="container">
+    <h1>Ammonical Nitrogen Test</h1>
+
+    <label for="sample">Sample Reading (ml)</label>
+    <input type="number" id="sample" placeholder="Enter sample reading">
+
+    <label for="blank">Blank Reading (ml)</label>
+    <input type="number" id="blank" placeholder="Enter blank reading">
+
+    <label for="normality">Normality of H<sub>2</sub>SO<sub>4</sub></label>
+    <input type="number" id="normality" placeholder="Enter normality">
+
+    <label for="volume">Volume of Sample (ml)</label>
+    <input type="number" id="volume" placeholder="Enter volume of sample">
+
+    <button onclick="calculateAmmonicalNitrogen()">Calculate</button>
+
+    <div id="result"></div>
+  </div>
+</body>
+</html>

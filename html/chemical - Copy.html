@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>COD Calculation</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 100px;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+}
+
+#result {
+  text-align: center;
+  font-weight: bold;
+}
+  </style>
+  <script>
+    document.getElementById('codForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get input values
+  var fasBlankA = parseFloat(document.getElementById('fasBlankA').value);
+  var fasSampleB = parseFloat(document.getElementById('fasSampleB').value);
+  var normality = parseFloat(document.getElementById('normality').value);
+  var sampleVolume = parseFloat(document.getElementById('sampleVolume').value);
+
+  // Calculate COD
+  var cod = ((fasBlankA - fasSampleB) * normality * 8000) / sampleVolume;
+
+  // Display result
+  document.getElementById('result').textContent = 'COD: ' + cod.toFixed(2) + ' mg/L';
+});
+  </script>
+</head>
+<body>
+  <h1>Chemical Oxygen Demand (COD) Calculation</h1>
+  
+  <form id="codForm">
+    <label for="fasBlankA">FAS used for Blank A (mL):</label>
+    <input type="number" id="fasBlankA" required><br>
+    
+    <label for="fasSampleB">FAS used for Sample B (mL):</label>
+    <input type="number" id="fasSampleB" required><br>
+    
+    <label for="normality">Normality of FAS:</label>
+    <input type="number" id="normality" required><br>
+    
+    <label for="sampleVolume">Volume of Sample (mL):</label>
+    <input type="number" id="sampleVolume" required><br>
+    
+    <button type="submit">Calculate COD</button>
+  </form>
+
+  <p id="result"></p>
+  
+  <script src="script.js"></script>
+</body>
+</html>

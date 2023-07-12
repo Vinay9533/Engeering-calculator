@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vinnu.css">
+    <script src="script2.js" defer></script> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Specific Gravity Determination of Soil</h2>
+        <div class="input-section">
+          <label for="density-bottle-mass">Mass of Density Bottle (g):</label>
+          <input type="number" id="density-bottle-mass" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="bottle-dry-soil-mass">Mass of Bottle & Dry Soil (g):</label>
+          <input type="number" id="bottle-dry-soil-mass" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="bottle-soil-liquid-mass">Mass of Bottle, Soil & Liquid (g):</label>
+          <input type="number" id="bottle-soil-liquid-mass" step="0.01">
+        </div>
+        <div class="input-section">
+          <label for="bottle-liquid-mass">Mass of Bottle (full of Liquid) (g):</label>
+          <input type="number" id="bottle-liquid-mass" step="0.01">
+        </div>
+        <button onclick="calculateSpecificGravity()">Calculate</button>
+        <div id="result"></div>
+      </div>
+      
+      
+</body>
+</html>
